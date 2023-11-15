@@ -1,8 +1,19 @@
-const decrement = document.getElementById("decrement");
-const increment = document.getElementById("increment");
+const counter = document.getElementById("counter");
 const value = document.getElementById("value");
 
-function decrementButtonClick() { 
-    value.textContent -= 1;
-};
-decrement.addEventListener('click', decrementButtonClick);
+
+counter.addEventListener('click', function (ev) { 
+    const action = ev.target.dataset.action;
+    if (action === 'decrement') {
+        decrementElement();
+    } else if(action === 'increment') {
+        incrementElement();
+    };
+    //console.log(action);
+});
+function decrementElement() { 
+    value.textContent =parseInt(value.textContent) - 1;
+}
+function incrementElement() { 
+    value.textContent =parseInt(value.textContent) + 1;
+}
